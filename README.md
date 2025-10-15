@@ -12,8 +12,8 @@
   4. start để bắt đầu mô phỏng
   5. Điều khiển Mô phỏng: Sử dụng các nút "Stop", "Reset", và "Restart" để điều khiển quá trình trực quan hóa.
 # Các thuật toán tìm kiếm mù được triển khai:
-  BFS (Breadth-First Search): Duyệt qua tất cả các cột khả thi theo từng hàng, đảm bảo tìm ra giải pháp.
-  DFS: Cho duyệt tương tự để có thể so sánh với BFS
+  ## BFS (Breadth-First Search): Duyệt qua tất cả các cột khả thi theo từng hàng, đảm bảo tìm ra giải pháp.
+  ## DFS: Cho duyệt tương tự để có thể so sánh với BFS
   DLS (Depth-Limited Search): Một biến thể của DFS, dừng tìm kiếm sau khi đạt đến một giới hạn độ sâu được xác định trước.
   IDS (Iterative Deepening Search): Kết hợp lợi ích của BFS và DFS bằng cách thực hiện một loạt các tìm kiếm DLS với độ sâu tăng dần.
   UCS (Uniform-Cost Search): Tìm đường đi có tổng chi phí thấp nhất. Trong mô hình này, nó hoạt động tương tự BFS vì chi phí mỗi bước là như nhau.
