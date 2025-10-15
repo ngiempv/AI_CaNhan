@@ -80,7 +80,7 @@ Từ trong chùm, thuật toán chọn ra quân xe tốt nhất tuyệt đối, 
     Hoạt ảnh mô phỏng quá trình này một cách trực quan: Đối với mỗi hàng (một nhánh AND), thuật toán sẽ thử lần lượt các cột (các nhánh OR).Các quân xe đã được "chốt" vị trí (đại diện cho các nhánh AND đã thành công) sẽ có màu đỏ. 
 Quân xe đang được thử nghiệm ở hàng hiện tại (một nhánh OR) sẽ có màu xanh lam.  Thuật toán sẽ duyệt qua các quân xe màu xanh cho đến khi tìm thấy vị trí khớp với goal. Khi một nhánh OR thành công, quân xe sẽ được "chốt" lại thành màu đỏ, và thuật toán chuyển sang giải quyết nhánh AND tiếp theo (hàng tiếp theo).
 ![Giao diện mô phỏng các bước and đã được chấp nhận và or khi đang xét trong thuật toán][(Image_Readme/andor.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/andor.png)
-  # Belief State: 
+  ## Belief State: 
         Belief State Search là một khái niệm dùng cho các tác tử hoạt động trong môi trường không chắc chắn hoặc chỉ quan sát được một phần.
       - Cách Triển Khai & Trực Quan Hóa
           Xác định Belief State: Tại mỗi hàng, "trạng thái niềm tin" của thuật toán là tập hợp tất cả các cột còn trống mà quân xe có thể được đặt vào.
@@ -91,7 +91,7 @@ Quân xe đang được thử nghiệm ở hàng hiện tại (một nhánh OR) 
           "Sụp đổ" Trạng thái: Hoạt ảnh sẽ xóa tất cả các quân xe màu xám và "chốt" lại quân xe đúng bằng màu đỏ. Quá trình này mô phỏng việc loại bỏ sự không chắc chắn và cập nhật lại "niềm tin" của tác tử.
           Thuật toán sau đó chuyển sang hàng tiếp theo với một "trạng thái niềm tin" mới.
 ![Giao diện mô phỏng niềm tin bằng các con xe màu xám][(Image_Readme/belir.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/beli.png)
-  # Back tracking Search: 
+  ## Back tracking Search: 
         Thuật toán cơ bản và mạnh mẽ để giải quyết CSP. Nó xây dựng giải pháp một cách có hệ thống, từng bước một. Ngay khi xác định một bước đi vi phạm ràng buộc, nó sẽ "quay lui" (backtrack) để thử một lựa chọn khác, qua đó tránh phải duyệt qua các nhánh tìm kiếm vô ích.
       - Cách Triển Khai & Trực Quan Hóa:
           Thuật toán bắt đầu từ hàng đầu tiên và thử đặt một quân xe vào từng cột.
@@ -99,7 +99,7 @@ Quân xe đang được thử nghiệm ở hàng hiện tại (một nhánh OR) 
           Đi sâu hơn: Nếu vị trí là an toàn, nó sẽ gọi đệ quy để giải quyết cho hàng tiếp theo.
           Quay lui: Nếu một nhánh tìm kiếm dẫn đến ngõ cụt (không tìm được vị trí an toàn cho hàng tiếp theo), hàm đệ quy sẽ trả về thất bại. Hoạt ảnh sẽ cho thấy quân xe ở bước thử sai bị xóa đi, và thuật toán sẽ thử cột tiếp theo trong hàng hiện tại. Đây chính là hành động "quay lui" được trực quan hóa.
 Quá trình này tiếp tục cho đến khi tìm thấy một cấu hình hoàn chỉnh khớp với trạng thái đích.
-  # Forward Checking: 
+  ## Forward Checking: 
     Một phiên bản cải tiến và thông minh hơn của Backtracking.
       - Cách Triển Khai:
             Miền giá trị (Domain): Mỗi hàng "tương lai" (chưa được đặt xe) có một "miền giá trị" – là tập hợp các cột mà quân xe có thể được đặt vào.
