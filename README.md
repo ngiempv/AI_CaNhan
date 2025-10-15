@@ -11,7 +11,7 @@
   3. Chọn thuật toán
   4. start để bắt đầu mô phỏng
   5. Điều khiển Mô phỏng: Sử dụng các nút "Stop", "Reset", và "Restart" để điều khiển quá trình trực quan hóa.
-Các thuật toán tìm kiếm mù được triển khai:
+# Các thuật toán tìm kiếm mù được triển khai:
   BFS (Breadth-First Search): Duyệt qua tất cả các cột khả thi theo từng hàng, đảm bảo tìm ra giải pháp.
   DFS: Cho duyệt tương tự để có thể so sánh với BFS
   DLS (Depth-Limited Search): Một biến thể của DFS, dừng tìm kiếm sau khi đạt đến một giới hạn độ sâu được xác định trước.
