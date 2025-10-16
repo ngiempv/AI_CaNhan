@@ -6,9 +6,10 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
 ## Minh họa các thuật toán tìm kiếm để tìm ra lời giải với Goal được đặt bằng tay trước
 ![Giao diện][(Image_Readme/UI.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/UI.png)
 # Chương trình bao gồm các tính năng:
-  Tương tắc với giao diện: Tự thiết lập trạng thái đích cho bài toán N-Xe trên một bàn cờ trực quan.
-  So sánh Song song: Theo dõi thuật toán hoạt động trên bàn cờ bên trái để khớp với trạng thái đích ở bàn cờ bên phải.
-  Hoạt ảnh Từng bước (Step-by-Step): Trực quan hóa rõ ràng quá trình khám phá, quay lui và ra quyết định của mỗi thuật toán.
+  Tương tắc với giao diện:   
+  Tự thiết lập trạng thái đích cho bài toán N-Xe trên một bàn cờ trực quan.  
+  So sánh Song song: Theo dõi thuật toán hoạt động trên bàn cờ bên trái để khớp với trạng thái đích ở bàn cờ bên phải.  
+  Hoạt ảnh Từng bước (Step-by-Step): Trực quan hóa rõ ràng quá trình khám phá, quay lui và ra quyết định của mỗi thuật toán.  
 # Hướng dẫn sử dụng
   1. Chạy file python
   2. Thiết lập goal lên bàn cờ bên phải
