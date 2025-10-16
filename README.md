@@ -1,3 +1,7 @@
+2311029
+Phan Vĩnh Nghiêm
+Môn học: Trí tuệ Nhân tạo
+Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
 # Bài toán 8 quân xe
 ## Minh họa các thuật toán tìm kiếm để tìm ra lời giải với Goal được đặt bằng tay trước
 ![Giao diện][(Image_Readme/UI.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/UI.png)
@@ -14,8 +18,10 @@
 # Các thuật toán tìm kiếm mù được triển khai:
   ## BFS (Breadth-First Search): 
   Duyệt qua tất cả các cột khả thi theo từng hàng, đảm bảo tìm ra giải pháp.
+  ![BFS](https://github.com/user-attachments/assets/8348cc95-4b7f-478a-8b96-a0823f21874b)
   ## DFS: 
   Cho duyệt tương tự để có thể so sánh với BFS
+  ![DFS](https://github.com/user-attachments/assets/915fd479-884a-4504-8018-1f6b21f37489)
   ## DLS (Depth-Limited Search): 
   Một biến thể của DFS, dừng tìm kiếm sau khi đạt đến một giới hạn độ sâu được xác định trước.
   ## IDS (Iterative Deepening Search): 
