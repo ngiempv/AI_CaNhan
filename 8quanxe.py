@@ -881,6 +881,155 @@ def animate_forward_checking_step(path, domains):
                 return True
 
     return False
+
+def run_minimax():
+    global confirmed_car, current_search_row, goal_map
+    if not right_positions: 
+        status_label.config(text="Lỗi: Hãy đặt quân xe ở bàn phải làm goal!")
+        return
+    
+    confirmed_car, current_search_row = [], 0
+    goal_map = {r: c for r, c in sorted(right_positions)}
+    animate_minimax_step()
+
+def minimax_evaluate(trial_col, target_col):
+    return 10 if trial_col == target_col else -10
+
+def animate_minimax_step():
+    global after_id, current_search_row, confirmed_car, goal_map
+
+    if len(confirmed_car) == len(goal_map): 
+        status_label.config(text="Minimax: Đã hoàn thành!")
+        return
+
+    target_col = goal_map.get(current_search_row)
+    
+
+    best_move_for_max = -1
+    max_score = -float('inf')
+    
+    # Dùng một danh sách để lên lịch animation
+    cols_to_try = [c for c in range(SIZE) if c not in [pos[1] for pos in confirmed_car]]
+    
+    def try_next_col(index):
+        global after_id
+        nonlocal max_score, best_move_for_max
+        if index >= len(cols_to_try):
+            # Đã thử hết các cột, giờ chốt lựa chọn tốt nhất
+            finalize_minimax_choice(best_move_for_max)
+            return
+
+        trial_col = cols_to_try[index]
+        
+
+        # Trực quan hóa bước "suy nghĩ"
+        drawcar(board, 0, 0, confirmed_car, "red", "left_car")
+        drawcar(board, 0, 0, [(current_search_row, trial_col)], "#007BFF", "minimax_try")
+        board.update_idletasks()
+
+# Min
+        # Trong bài toán này, ta mô phỏng bằng hàm evaluate.
+        score = minimax_evaluate(trial_col, target_col)
+        
+        # 3. MAX chọn nước đi cho điểm cao nhất
+        if score > max_score:
+            max_score = score
+            best_move_for_max = trial_col
+            cost_value_label.config(text=str(max_score)) # Hiển thị điểm tốt nhất tìm được
+
+        # Lên lịch thử cột tiếp theo
+        after_id = board.after(150, lambda: try_next_col(index + 1))
+    
+    # Bắt đầu thử từ cột đầu tiên
+    try_next_col(0)
+
+def finalize_minimax_choice(chosen_col):
+    global after_id, current_search_row, confirmed_car
+    
+    board.delete("minimax_try")
+    confirmed_car.append((current_search_row, chosen_col))
+    current_search_row += 1
+    
+    drawcar(board, 0, 0, confirmed_car, "red", "left_car")
+    cost_value_label.config(text="0") # Reset cost cho dòng mới
+    board.update_idletasks()
+    
+    after_id = board.after(300, animate_minimax_step)
+
+def run_ac3():
+    """Chuẩn bị và bắt đầu animation AC-3."""
+    global confirmed_car, goal_map
+    if not right_positions: 
+        status_label.config(text="Lỗi: Hãy đặt goal ở bàn phải để so sánh!")
+        return
+    
+    status_label.config(text="AC-3: Đang tìm goal...")
+    confirmed_car = []
+    goal_map = {r: c for r, c in sorted(right_positions)}
+    
+    # Khởi tạo "domain" (miền giá trị) cho mỗi biến (hàng)
+    initial_domains = {r: list(range(SIZE)) for r in range(SIZE)}
+    
+    # Bắt đầu với bàn cờ trống và domain đầy đủ
+    animate_ac3_step([], initial_domains)
+
+def animate_ac3_step(path, domains):
+    global after_id, left_positions
+
+    # --- Vẽ trạng thái hiện tại và các ô bị loại ---
+    positions_to_draw = [(r, c) for r, c in enumerate(path)]
+    left_positions = positions_to_draw
+    drawcar(board, 0, 0, positions_to_draw, "red", "left_car")
+    cost_value_label.config(text=str(len(path)))
+
+    eliminated_pos = []
+    for r in range(len(path), SIZE):
+        for c in range(SIZE):
+            if c not in domains[r]:
+                eliminated_pos.append((r, c))
+    draw_eliminations(board, eliminated_pos)
+    board.update_idletasks()
+
+    # --- Điều kiện dừng ---
+    if len(path) == SIZE:
+        if {r: c for r, c in enumerate(path)} == goal_map:
+            status_label.config(text="AC-3: Đã tìm thấy goal!")
+            return True
+        return False
+
+    # --- Thử các lựa chọn cho dòng tiếp theo ---
+    next_row = len(path)
+    for col in domains[next_row]:
+        board.after(150)
+
+        # --- LOGIC AC-3 ---
+        # 1. Sao chép domain để không ảnh hưởng đến các nhánh khác
+        new_domains = {r: list(d) for r, d in domains.items()}
+        
+        # 2. Tạo hàng đợi các "cung" (arc) cần kiểm tra.
+        # Cung ở đây là ràng buộc giữa hàng vừa đặt (next_row) và các hàng tương lai.
+        arc_queue = deque([(future_row, next_row) for future_row in range(next_row + 1, SIZE)])
+        
+        # 3. Xử lý hàng đợi để lan truyền ràng buộc
+        while arc_queue:
+            xi, xj = arc_queue.popleft() # Lấy ra một cung (hàng_tương_lai, hàng_hiện_tại)
+            
+            # Kiểm tra xem có giá trị nào trong domain của Xi
+            # không thỏa mãn ràng buộc với giá trị vừa gán cho Xj (là `col`) không.
+            # Ràng buộc ở đây là: giá trị cột không được trùng nhau.
+            if col in new_domains[xi]:
+                new_domains[xi].remove(col) # Nếu có, loại bỏ nó.
+
+        # Kiểm tra xem có gây ra ngõ cụt không (domain rỗng)
+        is_dead_end = any(not new_domains[r] for r in range(next_row + 1, SIZE))
+        
+        if not is_dead_end:
+            solution_found = animate_ac3_step(path + [col], new_domains)
+            if solution_found:
+                return True
+
+    return False
+
 # Thao tác
 def start():
     global after_id
@@ -904,6 +1053,8 @@ def start():
     elif algo == "Belief State Search": run_beliefS()
     elif algo == "Back Tracking Search": run_backtracking()
     elif algo == "Forward Checking Search": run_forward_checking()
+    elif algo == "Minimax": run_minimax()
+    elif algo == "AC-3": run_ac3()
 
 def stop():
     global after_id
@@ -957,7 +1108,7 @@ def main():
     algo_var = tk.StringVar(value="BFS")
     
     algorithms = ["BFS", "DFS", "UCS", "DLS", "IDS", "A* Search", "Greedy", "Hill Climbing", "Simulated Annealing", "Genetic Algorithm", "Beam Search",
-                  "AndOr Search", "Belief State Search", "Back Tracking Search", "Forward Checking Search"]
+                  "AndOr Search", "Belief State Search", "Back Tracking Search", "Forward Checking Search", "Minimax", "AC-3"]
     for algo in algorithms:
         tk.Radiobutton(control_frame, text=algo, variable=algo_var, value=algo, command=choice).pack(anchor="w")
 
