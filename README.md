@@ -10,6 +10,38 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
   Tự thiết lập trạng thái đích cho bài toán N-Xe trên một bàn cờ trực quan.  
   So sánh Song song: Theo dõi thuật toán hoạt động trên bàn cờ bên trái để khớp với trạng thái đích ở bàn cờ bên phải.  
   Hoạt ảnh Từng bước (Step-by-Step): Trực quan hóa rõ ràng quá trình khám phá, quay lui và ra quyết định của mỗi thuật toán.  
+# Cấu trúc:
+/AI_Canhan
+│├── Image_Readme/
+│   ├── GA.png
+│   ├── Astar.png
+│   ├── UI.png
+│   ├── Andor.png
+│   ├── beam.png
+│   ├── beli.png
+│   ├── ForCheck.png
+│   ├── gree.png
+│  
+├──  A_star.gif
+├──  AndOr.gif
+├──  BFS.gif
+├──  Backtracking.gif
+├── Beam Search.gif
+├── BeliefState.gif
+├── DFS.gif
+├── DLS.gif
+├── ForwardChecking.gif
+├── GA.gif
+├── Greedy.gif
+├── Hill_Climbing.gif
+├── IDS.gif
+├── SA.gif
+├── UCS.gif
+├── minimax.gif
+├── AC3.gif
+│   
+├── Main.py
+└── README.md
 # Hướng dẫn sử dụng
   1. Chạy file python
   2. Thiết lập goal lên bàn cờ bên phải
@@ -35,9 +67,6 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
 # Tìm kiếm có thông tin:
   ## A* Search: 
       Thuật toán A* là một thuật toán tìm kiếm có thông tin (informed search) thông minh, kết hợp giữa chi phí thực tế (g(n)) và chi phí ước tính (h(n)) để tìm ra con đường tối ưu nhất.
-      Trong bài toán này, các chi phí được định nghĩa như sau:
-          - g(n) - Chi phí thực tế: Là số "bước đi" đã thực hiện để đạt đến trạng thái hiện tại. Trong code này, nó được tính là số quân xe đã được đặt đúng vị trí, cộng thêm 1 cho mỗi lần thử một cột sai trong hàng hiện tại.
-          - h(n) - Chi phí ước tính (Heuristic): Là một ước tính về chi phí để đi từ trạng thái hiện tại đến đích. Heuristic được sử dụng ở đây rất đơn giản và hiệu quả: nó chính là số quân xe còn lại cần phải đặt để hoàn thành mục tiêu.
       Hoạt ảnh sẽ mô phỏng quá trình tìm kiếm như sau:
           - Thuật toán sẽ duyệt qua các cột một cách tuần tự cho mỗi hàng (tương tự như BFS).    
           - Tại mỗi bước "thử" một quân xe vào một cột, nhãn "Chi phí (Cost)" trên giao diện sẽ hiển thị giá trị g(n) tại thời điểm đó. Bạn có thể thấy chi phí này tăng lên cho mỗi lần thử sai.
@@ -57,7 +86,6 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
    ## Hill Climbing: 
        Thuật toán Leo đồi là một vòng lặp đơn giản, liên tục di chuyển theo hướng "dốc lên" (hướng có giá trị tốt hơn).
        Đối với mỗi hàng, thuật toán bắt đầu bằng cách đặt một quân xe vào một cột ngẫu nhiên. Nó kiểm tra hai ô hàng xóm (trái và phải) và di chuyển đến ô nào có chi phí thấp hơn (gần cột đích hơn). Quá trình "leo dốc" này tiếp tục cho đến khi quân xe đến được đúng cột đích của hàng đó (chi phí bằng 0). Sau đó, thuật toán chuyển sang hàng tiếp theo và lặp lại quá trình.![Hill_Climbing](https://github.com/user-attachments/assets/a585b444-0b92-4164-a4dc-e7ec3c8031f2)
-
   ## SA: 
     Tôi luyện mô phỏng là một phiên bản cải tiến của Leo đồi, lấy cảm hứng từ quá trình tôi luyện kim loại.
      - Cách Triển Khai
@@ -89,7 +117,6 @@ Cặp tốt nhất này được "chốt" lại, và thuật toán chuyển sang
   - Trực Quan Hóa: Tại mỗi hàng, thuật toán xem xét tất cả các cột còn trống. Nó sắp xếp chúng dựa trên khoảng cách đến cột đích và chọn ra BEAM_WIDTH (trong code là 3) cột tốt nhất. "Chùm" gồm 3 ứng viên này được hiển thị bằng các quân xe màu xanh lam.
 Từ trong chùm, thuật toán chọn ra quân xe tốt nhất tuyệt đối, "chốt" nó lại bằng màu đỏ, và chuyển sang hàng tiếp theo.
 ![Giao diện mô phỏng các bước tốt nhất và tìm ra goal theo từng dòng của BeamSearch][(Image_Readme/beam.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/beam.png)![Beam Search](https://github.com/user-attachments/assets/13087b58-0cb6-4145-a022-586cfc24a1f2)
-
   ## AndOrSearch: 
     Thuật toán AND-OR Search được sử dụng để giải quyết các bài toán có thể được phân rã thành các bài toán con
     - Cách Triển Khai & Trực Quan Hóa
@@ -108,7 +135,6 @@ Quân xe đang được thử nghiệm ở hàng hiện tại (một nhánh OR) 
           "Sụp đổ" Trạng thái: Hoạt ảnh sẽ xóa tất cả các quân xe màu xám và "chốt" lại quân xe đúng bằng màu đỏ. Quá trình này mô phỏng việc loại bỏ sự không chắc chắn và cập nhật lại "niềm tin" của tác tử.
           Thuật toán sau đó chuyển sang hàng tiếp theo với một "trạng thái niềm tin" mới.
 ![Giao diện mô phỏng niềm tin bằng các con xe màu xám][(Image_Readme/belir.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/beli.png)![BeliefState](https://github.com/user-attachments/assets/bf4a2be0-f1e4-498a-be7c-b22c8375483d)
-
   ## Back tracking Search: 
         Thuật toán cơ bản và mạnh mẽ để giải quyết CSP. Nó xây dựng giải pháp một cách có hệ thống, từng bước một. Ngay khi xác định một bước đi vi phạm ràng buộc, nó sẽ "quay lui" (backtrack) để thử một lựa chọn khác, qua đó tránh phải duyệt qua các nhánh tìm kiếm vô ích.
       - Cách Triển Khai & Trực Quan Hóa:
@@ -117,7 +143,6 @@ Quân xe đang được thử nghiệm ở hàng hiện tại (một nhánh OR) 
           Đi sâu hơn: Nếu vị trí là an toàn, nó sẽ gọi đệ quy để giải quyết cho hàng tiếp theo.
           Quay lui: Nếu một nhánh tìm kiếm dẫn đến ngõ cụt (không tìm được vị trí an toàn cho hàng tiếp theo), hàm đệ quy sẽ trả về thất bại. Hoạt ảnh sẽ cho thấy quân xe ở bước thử sai bị xóa đi, và thuật toán sẽ thử cột tiếp theo trong hàng hiện tại. Đây chính là hành động "quay lui" được trực quan hóa.
 Quá trình này tiếp tục cho đến khi tìm thấy một cấu hình hoàn chỉnh khớp với trạng thái đích.![BackTracking](https://github.com/user-attachments/assets/27418cfd-215f-438c-9ef9-1ab59a820f7b)
-
   ## Forward Checking: 
     Một phiên bản cải tiến và thông minh hơn của Backtracking.
       - Cách Triển Khai:
@@ -127,5 +152,23 @@ Quá trình này tiếp tục cho đến khi tìm thấy một cấu hình hoàn
          -  Trực Quan Hóa
             Giống như Backtracking, các quân xe đã được "chốt" sẽ có màu đỏ.
             Điểm khác biệt chính là sự xuất hiện của các dấu '✕' màu xám trên bàn cờ.
-Các dấu '✕' này đại diện cho các ô đã bị loại khỏi miền giá trị của các hàng tương lai do các quyết định đã đưa ra. Hoạt ảnh cho thấy rõ cách không gian tìm kiếm được "cắt tỉa" một cách chủ động, giúp thuật toán tìm ra lời giải hiệu quả hơn so với Backtracking thông thường: ![Giao diện mô phỏng đại diện cho các ô bị loại khỏi miền giá trị][(Image_Readme/forCheck.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/forCheck.png)
+Các dấu '✕' này đại diện cho các ô đã bị loại khỏi miền giá trị của các hàng tương lai do các quyết định đã đưa ra. Hoạt ảnh cho thấy rõ cách không gian tìm kiếm được "cắt tỉa" một cách chủ động, giúp thuật toán tìm ra lời giải hiệu quả hơn so với Backtracking thông thường: (https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/forCheck.png)
 ![ForwardChecking](https://github.com/user-attachments/assets/8978f4ad-46dc-4cce-8467-2be760546e07)
+  ## AC3:
+    AC-3 là một thuật toán dùng để lan truyền ràng buộc (constraint propagation). Nó thông minh hơn Forward Checking bằng cách sử dụng một hàng đợi để kiểm tra tính nhất quán của các "cung" (cặp biến có ràng buộc). Điều này giúp loại bỏ các giá trị không hợp lệ khỏi miền giá trị của các biến trong tương lai một cách có hệ thống.
+      - Cách Triển Khai:
+            Biến: Các hàng của bàn cờ.  
+            Miền giá trị (Domain): Các cột mà một quân xe có thể được đặt.  
+            Ràng buộc (Constraint/Arc): Hàng_i và Hàng_j không được có cùng giá trị cột.  
+            Lan truyền: Khi đặt một quân xe ở (hàng, cột), thuật toán sẽ tạo một hàng đợi chứa các "cung" ràng buộc giữa hàng này và các hàng trong tương lai. Nó xử lý từng cung, loại bỏ giá trị cột ra khỏi miền giá trị của các hàng tương lai để đảm bảo tính nhất quán.
+      - Trực Quan Hóa: Giống như Forward Checking, các quân xe đã được "chốt" sẽ có màu đỏ. Điểm khác biệt chính là sự xuất hiện của các dấu '✕' màu xám trên bàn cờ.
+Các dấu '✕' này đại diện cho các ô đã bị loại khỏi miền giá trị của các hàng tương lai. Hoạt ảnh cho thấy rõ cách AC-3 "cắt tỉa" không gian tìm kiếm một cách chủ động, giúp thuật toán phát hiện ngõ cụt hiệu quả.
+Thuật toán Minimax được sử dụng trong các trò chơi hai người có tổng bằng không (zero-sum game) như cờ vua. Nó hoạt động bằng cách chọn nước đi tối đa hóa lợi ích cho mình, với giả định rằng đối thủ sẽ luôn chọn nước đi tối thiểu hóa lợi ích đó.
+  ## Minimax
+    - Cách Triển Khai: Để mô phỏng Minimax trong bài toán N-Xe, chúng ta diễn giải nó như một "ván cờ" cho từng hàng:
+          Người chơi MAX (màu xanh): Là thuật toán của chúng ta, cố gắng chọn cột khớp với goal. Người chơi MIN (đối thủ tưởng tượng): Luôn chọn kết quả tệ nhất cho MAX.
+          Hàm đánh giá: Một nước đi đúng sẽ được +10 điểm, nước đi sai bị -10 điểm.
+    - Trực Quan Hóa: Hoạt ảnh cho thấy quá trình "suy nghĩ" của MAX tại mỗi hàng:
+    Các quân xe đã được "chốt" vị trí sẽ có màu đỏ. 
+    Tại hàng đang xét, thuật toán sẽ thử lần lượt từng cột khả thi. Quân xe đang được "thử nghiệm" sẽ có màu xanh lam. 
+![minimax-min](https://github.com/user-attachments/assets/7ed92b00-f574-495a-b97d-3f989cb35620)
