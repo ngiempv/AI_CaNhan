@@ -25,10 +25,13 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
   ![DFS](https://github.com/user-attachments/assets/915fd479-884a-4504-8018-1f6b21f37489)
   ## DLS (Depth-Limited Search): 
   Một biến thể của DFS, dừng tìm kiếm sau khi đạt đến một giới hạn độ sâu được xác định trước.
+  ![DLS](https://github.com/user-attachments/assets/a0d400b6-4a2d-49cd-a306-9b5af02b18fe)
   ## IDS (Iterative Deepening Search): 
   Kết hợp lợi ích của BFS và DFS bằng cách thực hiện một loạt các tìm kiếm DLS với độ sâu tăng dần.
+  ![IDS](https://github.com/user-attachments/assets/39395f44-66b5-48d5-9e8e-e85613f62ec4)
   ## UCS (Uniform-Cost Search): 
   Tìm đường đi có tổng chi phí thấp nhất. Trong mô hình này, nó hoạt động tương tự BFS vì chi phí mỗi bước là như nhau.
+  ![UCS](https://github.com/user-attachments/assets/5486ac67-d253-459e-a107-ac6ced3f7ac6)
 # Tìm kiếm có thông tin:
   ## A* Search: 
       Thuật toán A* là một thuật toán tìm kiếm có thông tin (informed search) thông minh, kết hợp giữa chi phí thực tế (g(n)) và chi phí ước tính (h(n)) để tìm ra con đường tối ưu nhất.
@@ -41,17 +44,20 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
           - Khi một quân xe được đặt vào đúng cột của hàng hiện tại (khớp với goal), nó sẽ được "chốt" lại, và thuật toán chuyển sang hàng tiếp theo.
           - Quá trình tiếp tục cho đến khi tất cả các quân xe được đặt đúng vị trí, lúc đó chi phí cuối cùng sẽ bằng tổng số quân xe.
 ![Giao diện mô phỏng Astar][(Image_Readme/Astar.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/Astar.png)
+![A_start](https://github.com/user-attachments/assets/eadc96a6-1c7a-4c01-b40f-91321e6cc879)
    ## Greedy: 
        Thuật toán Greedy (Tham lam) là một thuật toán tìm kiếm có thông tin, luôn ưu tiên lựa chọn con đường có vẻ tốt nhất tại thời điểm hiện tại. Nó ra quyết định chỉ dựa vào giá trị của hàm heuristic h(n) (chi phí ước tính đến đích) mà bỏ qua hoàn toàn chi phí đã đi g(n).
        Trong mô phỏng này, heuristic được định nghĩa một cách trực quan:
           - h(n) - Chi phí ước tính: Là số quân xe còn lại cần phải đặt để đến được trạng thái đích.
           - Một trạng thái được coi là "tốt hơn" nếu nó có giá trị h(n) thấp hơn, tức là gần với lời giải cuối cùng hơn.
 ![Giao diện mô phỏng Greedy][(Image_Readme/gree.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/gree.png)
-          - Như trên hình ảnh: Cost được tính bằng (8 - số quân xe đã được đặt hợp lệ goal trên bàn cờ). Càng bé càng gần goal
+          - Như trên hình ảnh: Cost được tính bằng (8 - số quân xe đã được đặt hợp lệ goal trên bàn cờ). Càng bé càng gần goal![Greedy](https://github.com/user-attachments/assets/94d2ac7f-51cf-4043-848e-a97cd5986c0f)
+
 # Tìm kiếm cục bộ (Local):
    ## Hill Climbing: 
        Thuật toán Leo đồi là một vòng lặp đơn giản, liên tục di chuyển theo hướng "dốc lên" (hướng có giá trị tốt hơn).
-       Đối với mỗi hàng, thuật toán bắt đầu bằng cách đặt một quân xe vào một cột ngẫu nhiên. Nó kiểm tra hai ô hàng xóm (trái và phải) và di chuyển đến ô nào có chi phí thấp hơn (gần cột đích hơn). Quá trình "leo dốc" này tiếp tục cho đến khi quân xe đến được đúng cột đích của hàng đó (chi phí bằng 0). Sau đó, thuật toán chuyển sang hàng tiếp theo và lặp lại quá trình.
+       Đối với mỗi hàng, thuật toán bắt đầu bằng cách đặt một quân xe vào một cột ngẫu nhiên. Nó kiểm tra hai ô hàng xóm (trái và phải) và di chuyển đến ô nào có chi phí thấp hơn (gần cột đích hơn). Quá trình "leo dốc" này tiếp tục cho đến khi quân xe đến được đúng cột đích của hàng đó (chi phí bằng 0). Sau đó, thuật toán chuyển sang hàng tiếp theo và lặp lại quá trình.![Hill_Climbing](https://github.com/user-attachments/assets/a585b444-0b92-4164-a4dc-e7ec3c8031f2)
+
   ## SA: 
     Tôi luyện mô phỏng là một phiên bản cải tiến của Leo đồi, lấy cảm hứng từ quá trình tôi luyện kim loại.
      - Cách Triển Khai
@@ -63,7 +69,8 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
     Giống như Leo đồi, thuật toán bắt đầu ở một cột ngẫu nhiên. Tuy nhiên, thay vì luôn đi đến hàng xóm tốt nhất, nó chọn một hàng xóm ngẫu nhiên.
 Nếu hàng xóm đó tốt hơn, nó sẽ di chuyển đến đó.
 Nếu hàng xóm đó tệ hơn, nó vẫn có thể di chuyển đến đó với một xác suất nhỏ, tạo ra những bước đi có vẻ "ngược đời" nhưng giúp nó khám phá toàn bộ không gian trạng thái.
-Hoạt ảnh cho thấy quân xe di chuyển qua lại, dần dần "lắng xuống" vị trí chính xác khi "nhiệt độ" giảm.
+Hoạt ảnh cho thấy quân xe di chuyển qua lại, dần dần "lắng xuống" vị trí chính xác khi "nhiệt độ" giảm.![SA](https://github.com/user-attachments/assets/a5c2876b-d73c-45cd-a362-83d57197e2d2)
+
   ## GA: 
       Thuật toán Di truyền mô phỏng quá trình tiến hóa và chọn lọc tự nhiên. Nó hoạt động trên một "quần thể" các giải pháp tiềm năng
     - Cách Triển Khai
@@ -73,20 +80,23 @@ Hoạt ảnh cho thấy quân xe di chuyển qua lại, dần dần "lắng xu�
         Chọn lọc: Thuật toán chọn ra cá thể có độ thích nghi cao nhất từ quần thể.
      - Trực Quan Hóa: Thuật toán xử lý hai hàng cùng một lúc. Nó tạo ra một quần thể gồm các cặp cột khả thi và hiển thị chúng dưới dạng các quân xe màu xanh lam. Nó đánh giá tất cả các cặp trong quần thể và chọn ra cặp tốt nhất (gần với goal nhất).
 Cặp tốt nhất này được "chốt" lại, và thuật toán chuyển sang hai hàng tiếp theo.
-![Giao diện mô phỏng quần thể và cặp con thành công xét theo từng cặp dòng][(Image_Readme/GA.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/GA.png)
+![Giao diện mô phỏng quần thể và cặp con thành công xét theo từng cặp dòng][(Image_Readme/GA.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/GA.png)![GA](https://github.com/user-attachments/assets/5bf577e9-97eb-444f-8949-d520a4ceccdd)
+
   ## BeamSearch: 
     Tìm kiếm Chùm là một biến thể của tìm kiếm Best-First, nhưng nó chỉ giữ lại một số lượng giới hạn (k, hay BEAM_WIDTH) các trạng thái hứa hẹn nhất ở mỗi bước để khám phá tiếp.
   - Cách Triển Khai: Chùm (Beam): Một danh sách chứa k trạng thái (cột) tốt nhất hiện tại.
                       Đánh giá: Các trạng thái được đánh giá dựa trên chi phí (khoảng cách đến cột đích).
   - Trực Quan Hóa: Tại mỗi hàng, thuật toán xem xét tất cả các cột còn trống. Nó sắp xếp chúng dựa trên khoảng cách đến cột đích và chọn ra BEAM_WIDTH (trong code là 3) cột tốt nhất. "Chùm" gồm 3 ứng viên này được hiển thị bằng các quân xe màu xanh lam.
 Từ trong chùm, thuật toán chọn ra quân xe tốt nhất tuyệt đối, "chốt" nó lại bằng màu đỏ, và chuyển sang hàng tiếp theo.
-![Giao diện mô phỏng các bước tốt nhất và tìm ra goal theo từng dòng của BeamSearch][(Image_Readme/beam.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/beam.png)
+![Giao diện mô phỏng các bước tốt nhất và tìm ra goal theo từng dòng của BeamSearch][(Image_Readme/beam.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/beam.png)![Beam Search](https://github.com/user-attachments/assets/13087b58-0cb6-4145-a022-586cfc24a1f2)
+
   ## AndOrSearch: 
     Thuật toán AND-OR Search được sử dụng để giải quyết các bài toán có thể được phân rã thành các bài toán con
     - Cách Triển Khai & Trực Quan Hóa
     Hoạt ảnh mô phỏng quá trình này một cách trực quan: Đối với mỗi hàng (một nhánh AND), thuật toán sẽ thử lần lượt các cột (các nhánh OR).Các quân xe đã được "chốt" vị trí (đại diện cho các nhánh AND đã thành công) sẽ có màu đỏ. 
 Quân xe đang được thử nghiệm ở hàng hiện tại (một nhánh OR) sẽ có màu xanh lam.  Thuật toán sẽ duyệt qua các quân xe màu xanh cho đến khi tìm thấy vị trí khớp với goal. Khi một nhánh OR thành công, quân xe sẽ được "chốt" lại thành màu đỏ, và thuật toán chuyển sang giải quyết nhánh AND tiếp theo (hàng tiếp theo).
-![Giao diện mô phỏng các bước and đã được chấp nhận và or khi đang xét trong thuật toán][(Image_Readme/andor.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/andor.png)
+![Giao diện mô phỏng các bước and đã được chấp nhận và or khi đang xét trong thuật toán][(Image_Readme/andor.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/andor.png)![AndOr](https://github.com/user-attachments/assets/53cc7952-ce60-4313-b89d-078510084d18)
+
   ## Belief State: 
         Belief State Search là một khái niệm dùng cho các tác tử hoạt động trong môi trường không chắc chắn hoặc chỉ quan sát được một phần.
       - Cách Triển Khai & Trực Quan Hóa
@@ -97,7 +107,8 @@ Quân xe đang được thử nghiệm ở hàng hiện tại (một nhánh OR) 
           Cập nhật Niềm tin (Belief Update): Sau khi hiển thị tất cả các khả năng, thuật toán sẽ "quan sát" và xác định được vị trí đúng (vị trí goal).
           "Sụp đổ" Trạng thái: Hoạt ảnh sẽ xóa tất cả các quân xe màu xám và "chốt" lại quân xe đúng bằng màu đỏ. Quá trình này mô phỏng việc loại bỏ sự không chắc chắn và cập nhật lại "niềm tin" của tác tử.
           Thuật toán sau đó chuyển sang hàng tiếp theo với một "trạng thái niềm tin" mới.
-![Giao diện mô phỏng niềm tin bằng các con xe màu xám][(Image_Readme/belir.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/beli.png)
+![Giao diện mô phỏng niềm tin bằng các con xe màu xám][(Image_Readme/belir.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/beli.png)![BeliefState](https://github.com/user-attachments/assets/bf4a2be0-f1e4-498a-be7c-b22c8375483d)
+
   ## Back tracking Search: 
         Thuật toán cơ bản và mạnh mẽ để giải quyết CSP. Nó xây dựng giải pháp một cách có hệ thống, từng bước một. Ngay khi xác định một bước đi vi phạm ràng buộc, nó sẽ "quay lui" (backtrack) để thử một lựa chọn khác, qua đó tránh phải duyệt qua các nhánh tìm kiếm vô ích.
       - Cách Triển Khai & Trực Quan Hóa:
@@ -105,7 +116,8 @@ Quân xe đang được thử nghiệm ở hàng hiện tại (một nhánh OR) 
           Kiểm tra Ràng buộc (is_safe): Sau mỗi lần thử, nó kiểm tra xem vị trí mới có bị tấn công bởi các quân xe đã đặt ở các hàng trước đó không.
           Đi sâu hơn: Nếu vị trí là an toàn, nó sẽ gọi đệ quy để giải quyết cho hàng tiếp theo.
           Quay lui: Nếu một nhánh tìm kiếm dẫn đến ngõ cụt (không tìm được vị trí an toàn cho hàng tiếp theo), hàm đệ quy sẽ trả về thất bại. Hoạt ảnh sẽ cho thấy quân xe ở bước thử sai bị xóa đi, và thuật toán sẽ thử cột tiếp theo trong hàng hiện tại. Đây chính là hành động "quay lui" được trực quan hóa.
-Quá trình này tiếp tục cho đến khi tìm thấy một cấu hình hoàn chỉnh khớp với trạng thái đích.
+Quá trình này tiếp tục cho đến khi tìm thấy một cấu hình hoàn chỉnh khớp với trạng thái đích.![BackTracking](https://github.com/user-attachments/assets/27418cfd-215f-438c-9ef9-1ab59a820f7b)
+
   ## Forward Checking: 
     Một phiên bản cải tiến và thông minh hơn của Backtracking.
       - Cách Triển Khai:
@@ -116,3 +128,4 @@ Quá trình này tiếp tục cho đến khi tìm thấy một cấu hình hoàn
             Giống như Backtracking, các quân xe đã được "chốt" sẽ có màu đỏ.
             Điểm khác biệt chính là sự xuất hiện của các dấu '✕' màu xám trên bàn cờ.
 Các dấu '✕' này đại diện cho các ô đã bị loại khỏi miền giá trị của các hàng tương lai do các quyết định đã đưa ra. Hoạt ảnh cho thấy rõ cách không gian tìm kiếm được "cắt tỉa" một cách chủ động, giúp thuật toán tìm ra lời giải hiệu quả hơn so với Backtracking thông thường: ![Giao diện mô phỏng đại diện cho các ô bị loại khỏi miền giá trị][(Image_Readme/forCheck.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/forCheck.png)
+![ForwardChecking](https://github.com/user-attachments/assets/8978f4ad-46dc-4cce-8467-2be760546e07)
