@@ -1,7 +1,7 @@
-2311029
-Phan Vĩnh Nghiêm
-Môn học: Trí tuệ Nhân tạo
-Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
+2311029  
+Phan Vĩnh Nghiêm  
+Môn học: Trí tuệ Nhân tạo  
+Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4  
 # Bài toán 8 quân xe
 ## Minh họa các thuật toán tìm kiếm để tìm ra lời giải với Goal được đặt bằng tay trước
 ![Giao diện][(Image_Readme/UI.png)](https://github.com/ngiempv/AI_CaNhan/blob/main/Image_Readme/UI.png)
