@@ -11,7 +11,7 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
   So sánh Song song: Theo dõi thuật toán hoạt động trên bàn cờ bên trái để khớp với trạng thái đích ở bàn cờ bên phải.  
   Hoạt ảnh Từng bước (Step-by-Step): Trực quan hóa rõ ràng quá trình khám phá, quay lui và ra quyết định của mỗi thuật toán.  
 # Cấu trúc:
-/AI_Canhan
+/AI_Canhan  
 │├── Image_Readme/  
 │   ├── GA.png  
 │   ├── Astar.png  
