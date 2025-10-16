@@ -13,14 +13,14 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
 # Cấu trúc:
 /AI_Canhan  
 │├── Image_Readme/  
-│   ├── GA.png  
-│   ├── Astar.png  
-│   ├── UI.png  
-│   ├── Andor.png  
-│   ├── beam.png  
-│   ├── beli.png  
-│   ├── ForCheck.png  
-│   ├── gree.png  
+│         ├── GA.png  
+│         ├── Astar.png  
+│         ├── UI.png  
+│         ├── Andor.png  
+│         ├── beam.png  
+│         ├── beli.png  
+│         ├── ForCheck.png  
+│         ├── gree.png  
 │    
 ├──  A_star.gif  
 ├──  AndOr.gif  
