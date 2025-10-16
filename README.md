@@ -12,36 +12,36 @@ Lớp: Sáng thứ 2 - thứ 6, tiết 1 - 4
   Hoạt ảnh Từng bước (Step-by-Step): Trực quan hóa rõ ràng quá trình khám phá, quay lui và ra quyết định của mỗi thuật toán.  
 # Cấu trúc:
 /AI_Canhan
-│├── Image_Readme/
-│   ├── GA.png
-│   ├── Astar.png
-│   ├── UI.png
-│   ├── Andor.png
-│   ├── beam.png
-│   ├── beli.png
-│   ├── ForCheck.png
-│   ├── gree.png
-│  
-├──  A_star.gif
-├──  AndOr.gif
-├──  BFS.gif
-├──  Backtracking.gif
-├── Beam Search.gif
-├── BeliefState.gif
-├── DFS.gif
-├── DLS.gif
-├── ForwardChecking.gif
-├── GA.gif
-├── Greedy.gif
-├── Hill_Climbing.gif
-├── IDS.gif
-├── SA.gif
-├── UCS.gif
-├── minimax.gif
-├── AC3.gif
+│├── Image_Readme/  
+│   ├── GA.png  
+│   ├── Astar.png  
+│   ├── UI.png  
+│   ├── Andor.png  
+│   ├── beam.png  
+│   ├── beli.png  
+│   ├── ForCheck.png  
+│   ├── gree.png  
+│    
+├──  A_star.gif  
+├──  AndOr.gif  
+├──  BFS.gif  
+├──  Backtracking.gif  
+├── Beam Search.gif  
+├── BeliefState.gif  
+├── DFS.gif  
+├── DLS.gif  
+├── ForwardChecking.gif  
+├── GA.gif  
+├── Greedy.gif  
+├── Hill_Climbing.gif  
+├── IDS.gif  
+├── SA.gif  
+├── UCS.gif  
+├── minimax.gif  
+├── AC3.gif  
 │   
-├── Main.py
-└── README.md
+├── Main.py  
+└── README.md  
 # Hướng dẫn sử dụng
   1. Chạy file python
   2. Thiết lập goal lên bàn cờ bên phải
